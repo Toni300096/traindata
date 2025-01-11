@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <link rel="shortcut icon" type="image/webp" href="/images/doggo.png"/>
+
+    <title>Train data converter</title>
+    <link rel="stylesheet" href="style33.css">
+    <style>
+
+        #convertbutton {
+            width: 240px;
+            height: 60px;
+            border: solid;
+            border-width: 4px;
+            border-radius: 10px;
+            background: #ffdd00;
+            margin: auto;
+            margin-top: 10px;
+        }
+
+        #otherbutton {
+            width: 120px;
+            height: 50px;
+            border: solid;
+            border-width: 2px;
+            border-radius: 8px;
+            background: #9b9b9b;
+            margin: 10px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .verticalBox {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+        }
+
+        .horizontalBox {
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+        }
+
+        p {
+            font-size: 18px;
+            margin:0px;
+            font-family: Arial, sans-serif;
+        }
+        #big {
+            font-size: 28px;
+            margin:auto;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+
+<body style="background-color:#C78E9B">
+    <div class="verticalBox">
+        <p id="big">Input: (summon command)</p>
+        <div class="horizontalBox">
+            <div class="verticalBox">
+                <button id="otherbutton" onclick="addCommand()"><p>Add command</p></button>
+                <a href="trainConverter.html"><button id="otherbutton"><p>Reset</p></button></a>
+            </div>
+            <textarea id="input1" rows="5" cols="140"></textarea>
+        </div>
+
+        <button id="convertbutton"><p id="big">Convert</p></button>
+
+        <p id="big">Output: (data for github)</p>
+        <div class="horizontalBox">
+            <div class="verticalBox">
+                <button id="otherbutton" onclick="copy()"><p>Copy</p></button>
+            </div>
+            <textarea id="output" rows="10" cols="140" readonly="true"></textarea>
+        </div>
+    </div>
+
+    <script>
+        nbrCommands = 1;
+
+        function convert() {
+            const output = document.getElementById("output");
+            
+
+        }
+
+        function addCommand() {
+            nbrCommands++
+            console.log("Added a command. ("+nbrCommands+" total)");
+            const inputBox = document.getElementById("inputBox");
+            const element = document.createElement('textarea', {
+                id: "input"+nbrCommands,
+                col: "5",
+                row: "150"
+            });
+            inputBox.appendChild(element);
+            
+        }
+
+        function copy() {
+            var outputBox = document.getElementById("output");
+            outputBox.select();
+            //outputBox.setSelectionRange(0, 99999); // For mobile devices
+            navigator.clipboard.writeText(outputBox.value);
+            alert("Copied the text output!"); // Alert the copied text
+        }
+
+
+
+
+    </script>
+</body>
+</html>
